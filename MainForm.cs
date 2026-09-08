@@ -16,7 +16,6 @@ public sealed class MainForm : Form
     private readonly System.Windows.Forms.Timer _clock;
     private HotkeyManager? _hotkeys;
     private ToolStripMenuItem? _toggleItem;
-    private bool _allowVisible;
 
     public MainForm()
     {
@@ -53,16 +52,6 @@ public sealed class MainForm : Form
         };
 
         UpdateStatus();
-    }
-
-    protected override void SetVisibleCore(bool value)
-    {
-        if (!_allowVisible)
-        {
-            base.SetVisibleCore(false);
-            return;
-        }
-        base.SetVisibleCore(value);
     }
 
     protected override void OnHandleCreated(EventArgs e)
